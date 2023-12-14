@@ -3,7 +3,7 @@ LIB = libvector.a
 CC = clang
 
 SRC_DIR   = ./src
-INC_DIR   = ./include
+INC_DIR   = .
 BUILD_DIR = ./build
 
 LIB_H = $(INC_DIR)/t_vector.h
