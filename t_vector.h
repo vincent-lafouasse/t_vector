@@ -8,8 +8,8 @@ typedef struct s_vector
 	int* data;
 	size_t len;
 	size_t capacity;
-
-	struct s_vector (*new_vector)(struct s_vector*);
 } t_vector;
+
+t_vector* vector_new(void);
 
 #endif
