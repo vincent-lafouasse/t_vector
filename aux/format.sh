@@ -10,10 +10,10 @@ function norm {
 }
 
 SRC_DIR='./src'
-H_DIR='.'
+H_DIR='./include'
 
-C_FILES=$(find $SRC_DIR -name '*.c' | grep -v test)
-H_FILES=$(find $H_DIR -name '*.h' | grep -v test)
+C_FILES=$(find $SRC_DIR -name '*.c')
+H_FILES=$(find $H_DIR -name '*.h')
 
 TO_NORM="$C_FILES $H_FILES"
 

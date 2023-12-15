@@ -4,11 +4,11 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 SRC='./src'
-HEADER='t_vector.h'
+INC='include'
 
 check_norm() {
 	norminette "${SRC}" &&
-	norminette "${HEADER}" &&
+	norminette "${INC}" &&
 	echo "${GREEN}===============NORME OK===============${NC}\n"
 }
 
