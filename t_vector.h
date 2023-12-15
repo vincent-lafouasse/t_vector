@@ -6,12 +6,12 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:31 by poss              #+#    #+#             */
-/*   Updated: 2023/12/15 18:31:32 by poss             ###   ########.fr       */
+/*   Updated: 2023/12/15 18:45:27 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_VECTOR_H_
-# define T_VECTOR_H_
+#ifndef T_VECTOR_H
+# define T_VECTOR_H
 
 # include <stdbool.h>
 # include <stddef.h>
