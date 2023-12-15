@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:23 by poss              #+#    #+#             */
-/*   Updated: 2023/12/15 21:26:20 by poss             ###   ########.fr       */
+/*   Updated: 2023/12/15 21:35:44 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,18 @@ t_vector	*vec_new_from_array(size_t element_size, const void *array,
 		size_t size)
 {
 	t_vector	*new;
+	const int	*int_array;
+	const int	*before;
+	const int	*after;
 
+	int_array = array;
 	if (!array)
 		return (NULL);
 	new = vec_new_with_size(element_size, size);
+	before = new->data;
 	if (!new)
 		return (NULL);
 	memcpy(new->data, array, size * element_size);
+	after = new->data;
 	return (new);
 }
