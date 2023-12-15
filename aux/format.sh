@@ -17,6 +17,10 @@ H_FILES=$(find $H_DIR -name '*.h' | grep -v test)
 
 TO_NORM="$C_FILES $H_FILES"
 
+#################################################################
+
 for file in $TO_NORM; do
 	norm "$file"
 done
+
+clang-format -i test/src/*.c
