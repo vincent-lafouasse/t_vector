@@ -1,63 +1,67 @@
 #include "t_vector.h"
-
 #include <stdlib.h>
 
-t_vector* vector_new(void)
+t_vector	*vector_new(void)
 {
-	t_vector* new = malloc(sizeof(*new));
+	t_vector	*new;
+
+	new = malloc(sizeof(*new));
 	if (!new)
-		return NULL;
+		return (NULL);
 	new->data = NULL;
 	new->size = 0;
 	new->capacity = 0;
-	return new;
+	return (new);
 }
 
-t_vector* 	vector_new_with_capacity(size_t capacity__)
+t_vector	*vector_new_with_capacity(size_t capacity__)
 {
-	t_vector* new = vector_new();
-	if (!new)
-		return NULL;
+	t_vector	*new;
 
+	new = vector_new();
+	if (!new)
+		return (NULL);
 	new->capacity = capacity__;
 	new->size = 0;
 	new->data = malloc(capacity__ * sizeof(int));
 	if (!new->data)
-		return free(new), NULL;
-	return new;
-
+		return (free(new), NULL);
+	return (new);
 }
 
-t_vector* 	vector_new_with_size(size_t size__)
+t_vector	*vector_new_with_size(size_t size__)
 {
-	t_vector* new = vector_new_with_capacity(size__);
+	t_vector	*new;
+
+	new = vector_new_with_capacity(size__);
 	if (!new)
-		return NULL;
+		return (NULL);
 	new->size = size__;
-	return new;
+	return (new);
 }
 
-t_vector* 	vector_new_init(size_t size__, int value)
+t_vector	*vector_new_init(size_t size__, int value)
 {
-	t_vector* new = vector_new_with_size(size__);
-	if (!new)
-		return NULL;
+	t_vector	*new;
 
+	new = vector_new_with_size(size__);
+	if (!new)
+		return (NULL);
 	for (size_t i = 0; i < size__; i++)
 		new->data[i] = value;
-
-	return new;
+	return (new);
 }
 
-t_vector* 	vector_new_from_array(int* array, size_t size)
+t_vector	*vector_new_from_array(int *array, size_t size)
 {
+	t_vector	*new;
+
 	if (!array)
-		return NULL;
-	t_vector* new = vector_new_with_size(size);
+		return (NULL);
+	new = vector_new_with_size(size);
 	if (!new)
-		return NULL;
+		return (NULL);
 	for (size_t i = 0; i < size; i++)
 		new->data[i] = array[i];
-
-	return new;
+	return (new);
 }
