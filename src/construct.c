@@ -1,7 +1,7 @@
 #include "t_vector.h"
 #include <stdlib.h>
 
-t_vector	*vector_new(void)
+t_vector	*vec_new(void)
 {
 	t_vector	*new;
 
@@ -14,11 +14,11 @@ t_vector	*vector_new(void)
 	return (new);
 }
 
-t_vector	*vector_new_with_capacity(size_t capacity__)
+t_vector	*vec_new_with_capacity(size_t capacity__)
 {
 	t_vector	*new;
 
-	new = vector_new();
+	new = vec_new();
 	if (!new)
 		return (NULL);
 	new->capacity = capacity__;
@@ -29,22 +29,22 @@ t_vector	*vector_new_with_capacity(size_t capacity__)
 	return (new);
 }
 
-t_vector	*vector_new_with_size(size_t size__)
+t_vector	*vec_new_with_size(size_t size__)
 {
 	t_vector	*new;
 
-	new = vector_new_with_capacity(size__);
+	new = vec_new_with_capacity(size__);
 	if (!new)
 		return (NULL);
 	new->size = size__;
 	return (new);
 }
 
-t_vector	*vector_new_init(size_t size__, int value)
+t_vector	*vec_new_init(size_t size__, int value)
 {
 	t_vector	*new;
 
-	new = vector_new_with_size(size__);
+	new = vec_new_with_size(size__);
 	if (!new)
 		return (NULL);
 	for (size_t i = 0; i < size__; i++)
@@ -52,13 +52,13 @@ t_vector	*vector_new_init(size_t size__, int value)
 	return (new);
 }
 
-t_vector	*vector_new_from_array(int *array, size_t size)
+t_vector	*vec_new_from_array(int *array, size_t size)
 {
 	t_vector	*new;
 
 	if (!array)
 		return (NULL);
-	new = vector_new_with_size(size);
+	new = vec_new_with_size(size);
 	if (!new)
 		return (NULL);
 	for (size_t i = 0; i < size; i++)

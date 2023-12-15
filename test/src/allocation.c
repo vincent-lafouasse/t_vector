@@ -3,18 +3,18 @@
 
 static void test_default_constructor(void)
 {
-	t_vector* v = vector_new();
+	t_vector* v = vec_new();
 
 	TEST_ASSERT(v->data == NULL);
 	TEST_ASSERT(v->size == 0);
 	TEST_ASSERT(v->capacity == 0);
 
-	vector_delete(v);
+	vec_delete(v);
 }
 
 static void test_constructor_with_size(void)
 {
-	t_vector* v = vector_new_with_size(42);
+	t_vector* v = vec_new_with_size(42);
 	
 	if (!v)
 		TEST_FAIL();
@@ -23,13 +23,13 @@ static void test_constructor_with_size(void)
 	TEST_ASSERT(v->size == 42);
 	TEST_ASSERT(v->capacity == 42);
 
-	vector_delete(v);
+	vec_delete(v);
 }
 
 
 static void test_constructor_with_capacity(void)
 {
-	t_vector* v = vector_new_with_capacity(42);
+	t_vector* v = vec_new_with_capacity(42);
 	
 	if (!v)
 		TEST_FAIL();
@@ -38,12 +38,12 @@ static void test_constructor_with_capacity(void)
 	TEST_ASSERT(v->size == 0);
 	TEST_ASSERT(v->capacity == 42);
 
-	vector_delete(v);
+	vec_delete(v);
 }
 
 static void test_constructor_with_size_and_value(void)
 {
-	t_vector* v = vector_new_init(42, 69);
+	t_vector* v = vec_new_init(42, 69);
 	
 	if (!v)
 		TEST_FAIL();
@@ -57,7 +57,7 @@ static void test_constructor_with_size_and_value(void)
 		TEST_ASSERT(v->data[i] == 69);
 	}
 
-	vector_delete(v);
+	vec_delete(v);
 }
 
 static void test_constructor_from_array(void)
@@ -65,7 +65,7 @@ static void test_constructor_from_array(void)
 	int array[5] = {1, 3, 5, 69, 420};
 	size_t size = sizeof(array)/sizeof(int);
 
-	t_vector* v = vector_new_from_array(array, size);
+	t_vector* v = vec_new_from_array(array, size);
 	
 	if (!v)
 		TEST_FAIL();
@@ -77,7 +77,7 @@ static void test_constructor_from_array(void)
 		TEST_ASSERT_MESSAGE(v->data[i] == array[i], error);
 	}
 
-	vector_delete(v);
+	vec_delete(v);
 }
 
 void run_test_constructor(void)
