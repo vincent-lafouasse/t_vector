@@ -12,9 +12,9 @@
 
 #include "t_vector.h"
 
-void*		vec_at(t_vector *v, size_t position)
+void	*vec_at(t_vector *v, size_t position)
 {
 	if (!v)
-		return NULL;
-	return v->data + position * v->element_size;
+		return (NULL);
+	return (v->data + position * v->element_size);
 }

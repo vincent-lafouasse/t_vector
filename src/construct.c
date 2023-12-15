@@ -53,11 +53,12 @@ t_vector	*vec_new_init(size_t element_size, size_t size, const void *value)
 		return (NULL);
 	i = 0;
 	while (i < size)
-		memcpy(new->data + i * element_size, value, element_size);
+		memcpy(new->data + i *element_size, value, element_size);
 	return (new);
 }
 
-t_vector	*vec_new_from_array(size_t element_size, const void *array, size_t size)
+t_vector	*vec_new_from_array(size_t element_size, const void *array,
+		size_t size)
 {
 	t_vector	*new;
 
