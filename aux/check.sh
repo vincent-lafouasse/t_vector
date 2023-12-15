@@ -9,7 +9,7 @@ HEADER='t_vector.h'
 check_norm() {
 	norminette "${SRC}" &&
 	norminette "${HEADER}" &&
-	printf "${GREEN}===============NORME OK===============${NC}\n"
+	echo "${GREEN}===============NORME OK===============${NC}\n"
 }
 
 #############################################
