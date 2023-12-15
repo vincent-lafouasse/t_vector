@@ -6,7 +6,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 add_compile_options(-g3)
 
-add_library(vector src/construct.c)
+add_library(vector
+	src/construct.c
+	src/destruct.c
+)
 target_include_directories(vector PUBLIC .)
 
 add_library(unity_test_runner test/test-framework/unity.c)

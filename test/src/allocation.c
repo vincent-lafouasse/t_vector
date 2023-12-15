@@ -8,6 +8,8 @@ static void test_default_constructor(void)
 	TEST_ASSERT(v->data == NULL);
 	TEST_ASSERT(v->size == 0);
 	TEST_ASSERT(v->capacity == 0);
+
+	vector_delete(v);
 }
 
 static void test_constructor_with_size(void)
@@ -21,6 +23,7 @@ static void test_constructor_with_size(void)
 	TEST_ASSERT(v->size == 42);
 	TEST_ASSERT(v->capacity == 42);
 
+	vector_delete(v);
 }
 
 
@@ -35,6 +38,7 @@ static void test_constructor_with_capacity(void)
 	TEST_ASSERT(v->size == 0);
 	TEST_ASSERT(v->capacity == 42);
 
+	vector_delete(v);
 }
 
 static void test_constructor_with_size_and_value(void)
@@ -52,6 +56,8 @@ static void test_constructor_with_size_and_value(void)
 	{
 		TEST_ASSERT(v->data[i] == 69);
 	}
+
+	vector_delete(v);
 }
 
 static void test_constructor_from_array(void)
@@ -70,6 +76,8 @@ static void test_constructor_from_array(void)
 		sprintf(error, "error found at index %zu, expected %d was %d\n", i, v->data[i], array[i]);
 		TEST_ASSERT_MESSAGE(v->data[i] == array[i], error);
 	}
+
+	vector_delete(v);
 }
 
 void run_test_constructor(void)
