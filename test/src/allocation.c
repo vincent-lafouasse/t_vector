@@ -21,7 +21,7 @@ static void test_default_constructor(void)
 	TEST_ASSERT(v->size == 0);
 	TEST_ASSERT(v->capacity == 0);
 
-	//vec_delete(v);
+	vec_delete(v, NULL);
 }
 
 static void test_constructor_with_size(void)
@@ -36,6 +36,7 @@ static void test_constructor_with_size(void)
 	TEST_ASSERT(v->capacity == 42);
 
 	//vec_delete(v);
+	vec_delete(v, NULL);
 }
 
 static void test_constructor_with_size_and_value(void)
@@ -56,6 +57,7 @@ static void test_constructor_with_size_and_value(void)
 	}
 
 	//vec_delete(v);
+	vec_delete(v, NULL);
 }
 
 static void test_constructor_from_array(void)
@@ -83,6 +85,7 @@ static void test_constructor_from_array(void)
 	}
 
 	//vec_delete(v);
+	vec_delete(v, NULL);
 }
 
 void run_test_constructor(void)
