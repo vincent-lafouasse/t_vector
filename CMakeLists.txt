@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.18)
 
 project(t_vector LANGUAGES C)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_compile_options(-Wall -Wextra -Wpedantic)
 add_compile_options(-g3)
@@ -20,5 +21,3 @@ target_include_directories(test PUBLIC test/test-framework)
 target_link_libraries(test vector)
 target_link_libraries(test unity_test_runner)
 
-# LSP stuff, don't worry about it
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
