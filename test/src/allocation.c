@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:13 by poss              #+#    #+#             */
-/*   Updated: 2023/12/15 18:31:17 by poss             ###   ########.fr       */
+/*   Updated: 2023/12/15 21:07:51 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 const int NUMS[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-static void* digit_ptr(int digit, const int* nums)
+static const void* digit_ptr(int digit, const int* nums)
 {
     return (void*)(nums + digit);
 }
@@ -27,7 +27,7 @@ static int to_int(void* int_ptr)
 
 static void test_default_constructor(void)
 {
-    t_vector* v = vec_new();
+    t_vector* v = vec_new(sizeof(long));
 
     TEST_ASSERT(v->data == NULL);
     TEST_ASSERT(v->size == 0);
@@ -38,7 +38,7 @@ static void test_default_constructor(void)
 
 static void test_constructor_with_size(void)
 {
-    t_vector* v = vec_new_with_size(42);
+    t_vector* v = vec_new_with_size(4, 42);
 
     if (!v)
         TEST_FAIL();
@@ -54,7 +54,7 @@ static void test_constructor_with_size(void)
 static void test_constructor_with_size_and_value(void)
 {
     const int NUMS[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    t_vector* v = vec_new_init(42, digit_ptr(3, NUMS));
+    t_vector* v = vec_new_init(sizeof(int), 42, NUMS + 3);
 
     if (!v)
         TEST_FAIL();
