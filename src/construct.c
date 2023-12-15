@@ -6,14 +6,15 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:23 by poss              #+#    #+#             */
-/*   Updated: 2023/12/15 18:44:43 by poss             ###   ########.fr       */
+/*   Updated: 2023/12/15 21:35:44 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_vector.h"
 #include <stdlib.h>
+#include <string.h>
 
-t_vector	*vec_new(void)
+t_vector	*vec_new(size_t element_size)
 {
 	t_vector	*new;
 
@@ -23,17 +24,18 @@ t_vector	*vec_new(void)
 	new->data = NULL;
 	new->size = 0;
 	new->capacity = 0;
+	new->element_size = element_size;
 	return (new);
 }
 
-t_vector	*vec_new_with_size(size_t size)
+t_vector	*vec_new_with_size(size_t element_size, size_t size)
 {
 	t_vector	*new;
 
-	new = vec_new();
+	new = vec_new(element_size);
 	if (!new)
 		return (NULL);
-	new->data = malloc(size * sizeof(void *));
+	new->data = malloc(element_size * size);
 	if (!new->data)
 		return (free(new), NULL);
 	new->size = size;
@@ -41,35 +43,39 @@ t_vector	*vec_new_with_size(size_t size)
 	return (new);
 }
 
-t_vector	*vec_new_init(size_t size, void *value)
+t_vector	*vec_new_init(size_t element_size, size_t size, const void *value)
 {
 	t_vector	*new;
 	size_t		i;
 
-	new = vec_new_with_size(size);
-	if (!new)
-		return (NULL);
-	i = 0;
-	while (i < size)
-		new->data[i++] = value;
-	return (new);
-}
-
-t_vector	*vec_new_from_array(void **array, size_t size)
-{
-	t_vector	*new;
-	size_t		i;
-
-	if (!array)
-		return (NULL);
-	new = vec_new_with_size(size);
+	new = vec_new_with_size(element_size, size);
 	if (!new)
 		return (NULL);
 	i = 0;
 	while (i < size)
 	{
-		new->data[i] = array[i];
+		memcpy(new->data + (i * element_size), value, element_size);
 		++i;
 	}
+	return (new);
+}
+
+t_vector	*vec_new_from_array(size_t element_size, const void *array,
+		size_t size)
+{
+	t_vector	*new;
+	const int	*int_array;
+	const int	*before;
+	const int	*after;
+
+	int_array = array;
+	if (!array)
+		return (NULL);
+	new = vec_new_with_size(element_size, size);
+	before = new->data;
+	if (!new)
+		return (NULL);
+	memcpy(new->data, array, size * element_size);
+	after = new->data;
 	return (new);
 }
