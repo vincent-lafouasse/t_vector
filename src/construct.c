@@ -5,7 +5,7 @@ t_vector	*vec_new(void)
 {
 	t_vector	*new;
 
-	new = malloc(sizeof(*new));
+	new = malloc(sizeof(t_vector));
 	if (!new)
 		return (NULL);
 	new->data = NULL;
@@ -21,6 +21,9 @@ t_vector	*vec_new_with_size(size_t size__)
 	new = vec_new();
 	if (!new)
 		return (NULL);
+	new->data = malloc(size__ * sizeof(void*));
+	if (!new->data)
+		return free(new), NULL;
 	new->size = size__;
 	new->capacity = size__;
 	return (new);
