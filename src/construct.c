@@ -8,31 +8,31 @@ t_vector* vector_new(void)
 	if (!new)
 		return NULL;
 	new->data = NULL;
-	new->len = 0;
+	new->size = 0;
 	new->capacity = 0;
 	return new;
 }
 
-t_vector* 	vector_new_with_capacity(size_t capacity__)
+t_vector* 	vector_new_with_size(size_t size__)
 {
 	t_vector* new = vector_new();
 	if (!new)
 		return NULL;
-	new->capacity = capacity__;
-	new->len = capacity__;
-	new->data = malloc(capacity__ * sizeof(int));
+	new->capacity = size__;
+	new->size = size__;
+	new->data = malloc(size__ * sizeof(int));
 	if (!new->data)
 		return free(new), NULL;
 	return new;
 }
 
-t_vector* 	vector_new_with_capacity_with_value(size_t capacity__, int value)
+t_vector* 	vector_new_init(size_t size__, int value)
 {
-	t_vector* new = vector_new_with_capacity(capacity__);
+	t_vector* new = vector_new_with_size(size__);
 	if (!new)
 		return NULL;
 
-	for (size_t i = 0; i < capacity__; i++)
+	for (size_t i = 0; i < size__; i++)
 		new->data[i] = value;
 
 	return new;

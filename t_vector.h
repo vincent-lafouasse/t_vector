@@ -7,14 +7,15 @@
 typedef struct s_vector
 {
 	int* data;
-	size_t len;
+	size_t size;
 	size_t capacity;
 } t_vector;
 
 // Allocation/Destruction
 t_vector* 	vector_new(void);
+t_vector* 	vector_new_with_size(size_t size__);
+t_vector* 	vector_new_init(size_t size__, int value);
 t_vector* 	vector_new_with_capacity(size_t capacity__);
-t_vector* 	vector_new_with_capacity_with_value(size_t capacity__, int value);
 t_vector* 	vector_new_from_array(int* array, size_t size);
 void 		vector_delete(t_vector* v);
 
