@@ -11,7 +11,7 @@ void run_test_constructor(void);
 
 int main(void)
 {
-    UnityBegin("");
+    UnityBegin("Vector");
 	run_test_constructor();
     return (UnityEnd());
 }
