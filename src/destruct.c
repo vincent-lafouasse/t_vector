@@ -1,7 +1,7 @@
 #include "t_vector.h"
 #include <stdlib.h>
 
-void	vec_delete(t_vector *v)
+void	vec_delete__(t_vector *v)
 {
 	if (!v)
 		return ;

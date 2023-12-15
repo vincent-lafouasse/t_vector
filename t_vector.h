@@ -6,7 +6,7 @@
 
 typedef struct s_vector
 {
-	int		*data;
+	void	**data;
 	size_t	size;
 	size_t	capacity;
 }			t_vector;
@@ -14,9 +14,8 @@ typedef struct s_vector
 // Allocation/Destruction
 t_vector	*vec_new(void);
 t_vector	*vec_new_with_size(size_t size__);
-t_vector	*vec_new_init(size_t size__, int value);
-t_vector	*vec_new_with_capacity(size_t capacity__);
-t_vector	*vec_new_from_array(int *array, size_t size);
+t_vector	*vec_new_init(size_t size__, void* value);
+t_vector	*vec_new_from_array(void **array, size_t size);
 void		vec_delete(t_vector *v);
 
 // Capacity management
