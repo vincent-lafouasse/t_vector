@@ -14,29 +14,29 @@ t_vector	*vec_new(void)
 	return (new);
 }
 
-t_vector	*vec_new_with_size(size_t size__)
+t_vector	*vec_new_with_size(size_t size)
 {
 	t_vector	*new;
 
 	new = vec_new();
 	if (!new)
 		return (NULL);
-	new->data = malloc(size__ * sizeof(void*));
+	new->data = malloc(size * sizeof(void*));
 	if (!new->data)
 		return free(new), NULL;
-	new->size = size__;
-	new->capacity = size__;
+	new->size = size;
+	new->capacity = size;
 	return (new);
 }
 
-t_vector	*vec_new_init(size_t size__, void* value)
+t_vector	*vec_new_init(size_t size, void* value)
 {
 	t_vector	*new;
 
-	new = vec_new_with_size(size__);
+	new = vec_new_with_size(size);
 	if (!new)
 		return (NULL);
-	for (size_t i = 0; i < size__; i++)
+	for (size_t i = 0; i < size; i++)
 		new->data[i] = value;
 	return (new);
 }
