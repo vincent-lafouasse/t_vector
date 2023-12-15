@@ -11,7 +11,7 @@ add_library(vector
 	src/destruct.c
 	src/accessor.c
 )
-target_include_directories(vector PUBLIC .)
+target_include_directories(vector PUBLIC ./include)
 
 add_library(unity_test_runner test/test-framework/unity.c)
 target_compile_options(unity_test_runner PRIVATE -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR)
@@ -21,7 +21,7 @@ add_executable(test
 	test/src/main.c
 	test/src/allocation.c
 )
-target_include_directories(test PUBLIC .)
+target_include_directories(test PUBLIC ./include)
 target_include_directories(test PUBLIC test/test-framework)
 target_link_libraries(test vector)
 target_link_libraries(test unity_test_runner)
