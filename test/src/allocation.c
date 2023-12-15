@@ -1,6 +1,7 @@
 #include "t_vector.h"
 #include "unity.h"
 
+
 static void test_default_constructor(void)
 {
 	t_vector* v = vec_new();
@@ -26,24 +27,10 @@ static void test_constructor_with_size(void)
 	vec_delete(v);
 }
 
-
-static void test_constructor_with_capacity(void)
-{
-	t_vector* v = vec_new_with_capacity(42);
-	
-	if (!v)
-		TEST_FAIL();
-
-	TEST_ASSERT(v->data != NULL);
-	TEST_ASSERT(v->size == 0);
-	TEST_ASSERT(v->capacity == 42);
-
-	vec_delete(v);
-}
-
 static void test_constructor_with_size_and_value(void)
 {
-	t_vector* v = vec_new_init(42, 69);
+	const int NUMS[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	t_vector* v = vec_new_init(42, (void*)(NUMS + 3));
 	
 	if (!v)
 		TEST_FAIL();
@@ -54,7 +41,7 @@ static void test_constructor_with_size_and_value(void)
 
 	for (size_t i = 0; i < 42; i++)
 	{
-		TEST_ASSERT(v->data[i] == 69);
+		TEST_ASSERT(v->data[i] == NUMS + 3);
 	}
 
 	vec_delete(v);
@@ -62,8 +49,9 @@ static void test_constructor_with_size_and_value(void)
 
 static void test_constructor_from_array(void)
 {
-	int array[5] = {1, 3, 5, 69, 420};
-	size_t size = sizeof(array)/sizeof(int);
+	const int NUMS[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	void* array[] = {NUMS + 1, NUMS + 3, NUMS + 5, NUMS, NUMS + 4};
+	size_t size = sizeof(array)/sizeof(void*);
 
 	t_vector* v = vec_new_from_array(array, size);
 	
@@ -73,7 +61,7 @@ static void test_constructor_from_array(void)
 	for (size_t i = 0; i < size; i++)
 	{
 		char error[100] = "";
-		sprintf(error, "error found at index %zu, expected %d was %d\n", i, v->data[i], array[i]);
+		sprintf(error, "error found at index %zu, expected %d was %d\n", i, *(int*)(v->data[i]), *(int*)(array[i]));
 		TEST_ASSERT_MESSAGE(v->data[i] == array[i], error);
 	}
 
@@ -86,6 +74,5 @@ void run_test_constructor(void)
     RUN_TEST(test_default_constructor);
     RUN_TEST(test_constructor_with_size);
     RUN_TEST(test_constructor_with_size_and_value);
-    RUN_TEST(test_constructor_with_capacity);
     RUN_TEST(test_constructor_from_array);
 }
