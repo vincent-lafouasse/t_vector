@@ -43,7 +43,7 @@ void		vec_push_back(t_vector *v, int value);
 void		vec_insert(t_vector *v, int value, size_t position);
 void		vec_pop_back(t_vector *v);
 void		vec_erase(t_vector *v, size_t position);
-void 		vec_clear(t_vector* v);
+void		vec_clear(t_vector *v);
 
 // Accessors
 void		*vec_at(t_vector *v, size_t position);
