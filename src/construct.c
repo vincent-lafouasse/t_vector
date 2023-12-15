@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:23 by poss              #+#    #+#             */
-/*   Updated: 2023/12/15 21:23:53 by poss             ###   ########.fr       */
+/*   Updated: 2023/12/15 21:26:20 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ t_vector	*vec_new_init(size_t element_size, size_t size, const void *value)
 		return (NULL);
 	i = 0;
 	while (i < size)
+	{
 		memcpy(new->data + (i * element_size), value, element_size);
+		++i;
+	}
 	return (new);
 }
 
