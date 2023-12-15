@@ -1,7 +1,7 @@
 # t_vector
 
 ![test status](https://github.com/vincent-lafouasse/t_vector/actions/workflows/run_tests.yml/badge.svg)
-![static analysis status](https://github.com/vincent-lafouasse/t_vector/actions/workflows/check.yml.yml/badge.svg)
+![static analysis status](https://github.com/vincent-lafouasse/t_vector/actions/workflows/check.yml/badge.svg)
 
 
 A dynamic array in C
