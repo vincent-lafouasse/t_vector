@@ -1,0 +1,24 @@
+name: static analysis CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: install dependencies
+      run: sudo apt-get update && sudo apt-get -y install libbsd-dev && sudo apt-get -y install cppcheck  && sudo apt-get -y install bear
+
+    - name : install norminette
+      run: python3 -m pip install --upgrade pip setuptools && python3 -m pip install norminette
+
+    - name: run checks
+      run: sh aux/check.sh
