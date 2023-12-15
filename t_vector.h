@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:31 by poss              #+#    #+#             */
-/*   Updated: 2023/12/15 21:05:40 by poss             ###   ########.fr       */
+/*   Updated: 2023/12/15 21:12:44 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void		vec_pop_erase(t_vector *v, size_t position);
 void		vec_pop_front(t_vector *v);
 
 // Accessors
-int			vec_at(t_vector *v, size_t position);
-int			vec_front(t_vector *v);
-int			vec_back(t_vector *v);
+void*		vec_at(t_vector *v, size_t position);
+void*		vec_front(t_vector *v);
+void*		vec_back(t_vector *v);
 
 // Properties
 bool		vec_is_empty(t_vector *v);
