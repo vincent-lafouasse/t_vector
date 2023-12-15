@@ -14,6 +14,7 @@ typedef struct s_vector
 // Allocation/Destruction
 t_vector* 	vector_new(void);
 t_vector* 	vector_new_with_capacity(size_t capacity__);
+t_vector* 	vector_new_with_capacity_with_value(size_t capacity__, int value);
 t_vector* 	vector_new_from_array(int* array, size_t size);
 void 		vector_delete(t_vector* v);
 
