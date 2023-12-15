@@ -25,3 +25,5 @@ target_include_directories(test PUBLIC test/test-framework)
 target_link_libraries(test vector)
 target_link_libraries(test unity_test_runner)
 
+# run tests on all builds
+add_custom_target(run_tests ALL DEPENDS test COMMAND test)
