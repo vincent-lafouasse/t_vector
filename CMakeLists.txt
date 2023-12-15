@@ -10,6 +10,7 @@ add_library(vector src/construct.c)
 target_include_directories(vector PUBLIC .)
 
 add_library(unity_test_runner test/test-framework/unity.c)
+target_compile_options(unity_test_runner PRIVATE -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR)
 target_include_directories(unity_test_runner PUBLIC test/test-framework)
 
 add_executable(test 
