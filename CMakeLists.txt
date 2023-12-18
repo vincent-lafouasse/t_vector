@@ -17,3 +17,15 @@ PRIVATE
 
 #defines target `libunity.a`
 add_subdirectory(test/Unity)
+
+add_executable(test_runner)
+target_include_directories(test_runner PUBLIC ./include)
+target_include_directories(test_runner PUBLIC ./test/Unity/src)
+target_include_directories(test_runner PUBLIC ./test/Unity/extras/fixture/src)
+target_sources(test_runner
+PRIVATE
+	test/src/main.c
+	test/src/allocation.c
+)
+target_link_libraries(test_runner vector)
+target_link_libraries(test_runner unity)
