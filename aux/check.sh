@@ -3,7 +3,7 @@
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-SRC='./src'
+SRC='src'
 INC='include'
 
 check_norm() {
@@ -12,6 +12,14 @@ check_norm() {
 	echo "${GREEN}===============NORME OK===============${NC}\n"
 }
 
+run_cppcheck() {
+	cppcheck --language=c $(find ${SRC} -name '*.c') &&
+	# cppcheck --language=c $(find ${SRC} -name '*.h') &&
+	cppcheck --language=c $(find ${INC} -name '*.h') &&
+	echo "${GREEN}===============CPPCHECK OK===============${NC}\n"
+}
+
 #############################################
 
 check_norm
+run_cppcheck

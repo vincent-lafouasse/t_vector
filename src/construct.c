@@ -54,7 +54,8 @@ t_vector	*vec_new_init(size_t element_size, size_t size, const void *value)
 	i = 0;
 	while (i < size)
 	{
-		memcpy((unsigned char*)new->data + (i * element_size), value, element_size);
+		memcpy((unsigned char *)new->data + (i * element_size), value,
+			element_size);
 		++i;
 	}
 	return (new);
