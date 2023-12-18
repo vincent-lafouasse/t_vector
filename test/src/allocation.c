@@ -6,12 +6,14 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:13 by poss              #+#    #+#             */
-/*   Updated: 2023/12/18 22:57:06 by poss             ###   ########.fr       */
+/*   Updated: 2023/12/18 23:44:50 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_vector.h"
 #include "unity_fixture.h"
+
+#include <stdio.h>
 
 TEST_GROUP(Constructors);
 TEST_SETUP(Constructors) {}
@@ -88,6 +90,7 @@ TEST(Constructors, FromArray)
 
 TEST_GROUP_RUNNER(Constructors)
 {
+	printf("\e[34m----- Constructor -----\e[0m\n");
     RUN_TEST_CASE(Constructors, Default);
     RUN_TEST_CASE(Constructors, WithSize);
     RUN_TEST_CASE(Constructors, Init);
