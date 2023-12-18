@@ -17,4 +17,4 @@ target_compile_options(vector PRIVATE -Wall -Wextra -Wpedantic -g3)
 add_subdirectory(test)
 
 # run tests on all builds
-add_custom_target(run_tests ALL DEPENDS test_runner COMMAND test_runner)
+add_custom_target(run_tests ALL DEPENDS test_runner COMMAND test_runner -v)
