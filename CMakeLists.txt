@@ -17,6 +17,7 @@ PRIVATE
 
 #defines target `libunity.a`
 add_subdirectory(test/Unity)
+target_compile_options(unity PRIVATE -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR)
 
 add_executable(test_runner)
 target_include_directories(test_runner PUBLIC ./include)
