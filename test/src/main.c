@@ -6,24 +6,22 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:09 by poss              #+#    #+#             */
-/*   Updated: 2023/12/15 18:31:10 by poss             ###   ########.fr       */
+/*   Updated: 2023/12/18 22:57:10 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_vector.h"
-#include "unity.h"
+#include "unity_fixture.h"
 
 #include <stdio.h>
 
-void setUp(void) {}
+static void runAllTests()
+{
+    RUN_TEST_GROUP(Constructors);
+}
 
-void tearDown(void) {}
-
-void run_test_constructor(void);
-
-int main(void)
+int main(int ac, const char** av)
 {
     UnityBegin("Vector");
-    run_test_constructor();
-    return (UnityEnd());
+    return (UnityMain(ac, av, runAllTests));
 }
