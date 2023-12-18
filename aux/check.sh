@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 GREEN='\033[0;32m'
-NC='\033[0m'
+NO_COLOR='\033[0m'
 
 SRC='src'
 INC='include'
@@ -9,14 +9,14 @@ INC='include'
 check_norm() {
 	norminette "${SRC}" &&
 	norminette "${INC}" &&
-	echo "${GREEN}===============NORME OK===============${NC}\n"
+	echo "${GREEN}===============NORME OK===============${NO_COLOR}\n"
 }
 
 run_cppcheck() {
 	cppcheck --language=c $(find ${SRC} -name '*.c') &&
 	# cppcheck --language=c $(find ${SRC} -name '*.h') &&
 	cppcheck --language=c $(find ${INC} -name '*.h') &&
-	echo "${GREEN}===============CPPCHECK OK===============${NC}\n"
+	echo "${GREEN}===============CPPCHECK OK===============${NO_COLOR}\n"
 }
 
 #############################################
