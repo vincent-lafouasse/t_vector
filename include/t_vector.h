@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:31 by poss              #+#    #+#             */
-/*   Updated: 2024/01/13 19:32:25 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/13 19:44:47 by poss             ###   ########.fr       */
 /*   Updated: 2023/12/15 20:48:19 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -18,6 +18,16 @@
 # include <stddef.h>
 
 typedef int	TYPE;
+
+typedef struct s_opt_TYPE
+{
+	bool	is_none;
+	TYPE	value;
+}			t_opt_TYPE;
+
+bool		opt_TYPE_is_none(const t_opt_TYPE *opt);
+bool		opt_TYPE_is_some(const t_opt_TYPE *opt);
+TYPE		opt_TYPE_unwrap_or(const t_opt_TYPE *opt, TYPE value);
 
 typedef struct s_vector
 {
@@ -32,6 +42,11 @@ t_vector	*vec_new_with_size(size_t size);
 t_vector	*vec_new_init(size_t size, TYPE value);
 t_vector	*vec_new_from_array(const TYPE *array, size_t size);
 void		vec_delete(t_vector *v);
+
+// Accessors
+TYPE		vec_at(t_vector *v, size_t position);
+
+// ========== TODO ===============
 
 // Capacity management
 void		vec_reserve(size_t capacity);
