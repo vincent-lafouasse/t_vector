@@ -6,26 +6,15 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:27 by poss              #+#    #+#             */
-/*   Updated: 2023/12/15 21:42:17 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/13 19:31:36 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_vector.h"
 #include <stdlib.h>
 
-void	vec_delete__(t_vector *v, void (*del)(void *))
+void	vec_delete(t_vector *v)
 {
-	size_t	i;
-
-	if (!v)
-		return ;
-	i = 0;
-	if (del)
-	{
-		while (i < v->size - 1)
-		{
-		}
-	}
 	free(v->data);
 	free(v);
 }
