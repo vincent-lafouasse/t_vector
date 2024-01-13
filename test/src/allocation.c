@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:13 by poss              #+#    #+#             */
-/*   Updated: 2024/01/13 19:35:32 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/13 20:02:35 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ TEST(Constructors, Init)
 
     for (size_t i = 0; i < 42; i++)
     {
-        TEST_ASSERT(vec_at(v, i) == 69);
+        t_opt_TYPE element = vec_at(v, i);
+        TEST_ASSERT(opt_TYPE_is_some(&element));
+        TEST_ASSERT(element.value == 69);
     }
 
     vec_delete(v);
@@ -75,10 +77,13 @@ TEST(Constructors, FromArray)
 
     for (size_t i = 0; i < size; i++)
     {
+        t_opt_TYPE element = vec_at(v, i);
+        TEST_ASSERT(opt_TYPE_is_some(&element));
+
         char error[100] = "";
         sprintf(error, "error found at index %zu, expected %d was %d\n", i,
-                array[i], vec_at(v, i));
-        TEST_ASSERT_MESSAGE(vec_at(v, i) == array[i], error);
+                array[i], element.value);
+        TEST_ASSERT_MESSAGE(element.value == array[i], error);
     }
 
     vec_delete(v);
