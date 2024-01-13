@@ -4,7 +4,7 @@ project(t_vector LANGUAGES C)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(vector)
-target_sources(vector PRIVATE src/construct.c src/destruct.c src/accessor.c)
+target_sources(vector PRIVATE src/construct.c src/destruct.c src/accessor.c src/optional/t_optional.c)
 target_include_directories(vector PUBLIC ./include)
 target_compile_options(vector PRIVATE -Wall -Wextra -Wpedantic -g3)
 
