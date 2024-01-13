@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:31 by poss              #+#    #+#             */
-/*   Updated: 2024/01/13 19:44:47 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/13 19:49:11 by poss             ###   ########.fr       */
 /*   Updated: 2023/12/15 20:48:19 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -14,20 +14,10 @@
 #ifndef T_VECTOR_H
 # define T_VECTOR_H
 
+# include "ft_optional.h"
+# include "t_type.h"
 # include <stdbool.h>
 # include <stddef.h>
-
-typedef int	TYPE;
-
-typedef struct s_opt_TYPE
-{
-	bool	is_none;
-	TYPE	value;
-}			t_opt_TYPE;
-
-bool		opt_TYPE_is_none(const t_opt_TYPE *opt);
-bool		opt_TYPE_is_some(const t_opt_TYPE *opt);
-TYPE		opt_TYPE_unwrap_or(const t_opt_TYPE *opt, TYPE value);
 
 typedef struct s_vector
 {
