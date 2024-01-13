@@ -6,13 +6,15 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:08:51 by poss              #+#    #+#             */
-/*   Updated: 2024/01/13 19:33:02 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/13 19:58:19 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_vector.h"
 
-TYPE	vec_at(t_vector *v, size_t position)
+t_opt_TYPE	vec_at(t_vector *v, size_t position)
 {
-	return (v->data[position]);
+	if (position >= v->size)
+		return (opt_TYPE_get_none());
+	return (opt_TYPE_get_some(v->data[position]));
 }

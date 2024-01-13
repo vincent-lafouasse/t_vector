@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:31:31 by poss              #+#    #+#             */
-/*   Updated: 2024/01/13 19:55:18 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/13 19:58:29 by poss             ###   ########.fr       */
 /*   Updated: 2023/12/15 20:48:19 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ t_vector	*vec_new_from_array(const TYPE *array, size_t size);
 void		vec_delete(t_vector *v);
 
 // Accessors
-TYPE		vec_at(t_vector *v, size_t position);
+t_opt_TYPE	vec_at(t_vector *v, size_t position);
 
 // ========== TODO ===============
 
@@ -51,7 +51,6 @@ void		vec_erase(t_vector *v, size_t position);
 void		vec_clear(t_vector *v);
 
 // Accessors
-TYPE		vec_at(t_vector *v, size_t position);
 TYPE		vec_front(t_vector *v);
 TYPE		vec_back(t_vector *v);
 
